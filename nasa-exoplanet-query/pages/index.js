@@ -1,33 +1,29 @@
-import SearchPanel from "@/components/SearchPanel/SearchPanel";
+import SearchPanel from "@/components/SearchPanel";
 import {useEffect, useState} from "react";
+import ResultsPanel from "@/components/ResultsPanel";
 
 export default function Home() {
-    const [queryParams, setQueryParams] = useState({hostname: null, year: null, method: null, facility: null});
+    const [queryParams, setQueryParams] = useState({hostname: null, disc_year: null, discoverymethod: null, disc_facility: null});
+    const [results, setResults] = useState([]);
 
     useEffect(() => {
-        async function fetchData() {
-            const exoplanets = await getExoplanets();
-            console.log(exoplanets.json());  // 🖨️ print JSON here
-        }
-
-        fetchData().then();
+       getExoplanets().then(res => setResults(res));
     }, []);
 
     // Updates when search button is hit
     function onSubmit(params) {
         setQueryParams(params);
-        console.log(queryParams);
     }
 
     return (
-    <div>
-        <SearchPanel onSubmit={onSubmit}/>
-      <div> Results Panel</div>
-        <div> {queryParams.year}</div>
+    <div id="app-container">
+        <SearchPanel allResults={results} onSubmit={onSubmit}/>
+        <ResultsPanel allResults={results} queryParams={queryParams} />
     </div>
     );
 }
 
-export async function getExoplanets() {
-    return await fetch('/api/getData');
+async function getExoplanets() {
+    const res = await fetch('/api/getData');
+    return res.json();
 }
