@@ -4,7 +4,9 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <body className="antialiased">
+        <title>NASA Exoplanet Query</title>
+        <link rel="icon" href="./../public/nasa-logo.svg" />
+        <body className="antialiased">
       <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&display=swap" rel="stylesheet" />
       <Main />
         <NextScript />

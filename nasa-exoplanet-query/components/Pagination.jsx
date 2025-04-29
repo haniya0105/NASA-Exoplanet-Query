@@ -4,7 +4,7 @@ import React from "react";
 // 1-17 of 100
 // firstIndex-lastIndex of totalIndexes
 
-function Pagination({ totalResults, resultsPerPage, firstResultIndex, lastResultIndex, onPrevClick, onNextClick }) {
+function Pagination({ totalResults, firstResultIndex, lastResultIndex, onPrevClick, onNextClick }) {
     return (
         <div className="pagination">
             <button className="pagination-button" onClick={onPrevClick}> &lt; </button>

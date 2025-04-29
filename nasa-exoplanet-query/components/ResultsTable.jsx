@@ -72,7 +72,7 @@ function ResultsTable({ results, onSortClick }) {
                 ))}
                 </tbody>
             </table>
-            <Pagination totalResults={results.length} resultsPerPage={resultsPerPage} firstResultIndex={firstResultIndex} lastResultIndex={lastResultIndex} onPrevClick={handlePrevPage} onNextClick={handleNextPage} />
+            <Pagination totalResults={results.length} firstResultIndex={firstResultIndex} lastResultIndex={lastResultIndex} onPrevClick={handlePrevPage} onNextClick={handleNextPage} />
         </div>
     );
 }

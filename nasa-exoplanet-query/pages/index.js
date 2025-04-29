@@ -1,6 +1,7 @@
 import SearchPanel from "@/components/SearchPanel";
 import {useEffect, useState} from "react";
 import ResultsPanel from "@/components/ResultsPanel";
+import Loader from "@/components/Loader";
 
 export default function Home() {
     const [queryParams, setQueryParams] = useState({hostname: null, disc_year: null, discoverymethod: null, disc_facility: null});
@@ -16,9 +17,15 @@ export default function Home() {
     }
 
     return (
-    <div id="app-container">
-        <SearchPanel allResults={results} onSubmit={onSubmit}/>
-        <ResultsPanel allResults={results} queryParams={queryParams} />
+    <div id="app-container" className={!results.length ? 'loading' : ''}>
+        {!results.length ? (
+            <Loader />
+        ) : (
+            <>
+                <SearchPanel allResults={results} onSubmit={onSubmit} />
+                <ResultsPanel allResults={results} queryParams={queryParams} />
+            </>
+        )}
     </div>
     );
 }
