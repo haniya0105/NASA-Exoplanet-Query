@@ -19,7 +19,3 @@ To run the project locally:
    npm run dev
    ```
 
-## Credits
-[Rocket Loader Animation](https://withaarzoo.medium.com/building-an-animated-rocket-loader-using-html-and-css-b72a38e366e5)
-
-[Background Galaxy Image](https://unsplash.com/photos/blue-and-purple-galaxy-digital-wallpaper-E0AHdsENmDg)
